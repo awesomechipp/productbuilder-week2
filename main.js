@@ -1,53 +1,82 @@
-class LottoBall extends HTMLElement {
-    constructor() {
-        super();
-        const shadow = this.attachShadow({ mode: 'open' });
+const generateBtn = document.getElementById('generate-btn');
+const numbersDisplay = document.getElementById('numbers-display');
+const historyList = document.getElementById('history-list');
+const themeBtn = document.getElementById('theme-btn');
 
-        const number = this.getAttribute('number');
-        const color = this.getColor(number);
+// --- Theme Logic ---
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
 
-        const ball = document.createElement('div');
-        ball.style.backgroundColor = color;
-        ball.style.width = '60px';
-        ball.style.height = '60px';
-        ball.style.borderRadius = '50%';
-        ball.style.display = 'flex';
-        ball.style.alignItems = 'center';
-        ball.style.justifyContent = 'center';
-        ball.style.fontSize = '1.5rem';
-        ball.style.fontWeight = 'bold';
-        ball.style.color = 'white';
-        ball.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-        ball.textContent = number;
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+}
 
-        shadow.appendChild(ball);
+function updateThemeIcon(theme) {
+    themeBtn.textContent = theme === 'light' ? '🌙' : '☀️';
+}
+
+themeBtn.addEventListener('click', toggleTheme);
+initTheme();
+
+
+// --- Lotto Logic ---
+function getBallColorClass(num) {
+    if (num <= 10) return 'y1';
+    if (num <= 20) return 'y2';
+    if (num <= 30) return 'y3';
+    if (num <= 40) return 'y4';
+    return 'y5';
+}
+
+function createBall(num, delay) {
+    const ball = document.createElement('div');
+    ball.classList.add('ball', getBallColorClass(num));
+    ball.textContent = num;
+    ball.style.animationDelay = `${delay}s`;
+    return ball;
+}
+
+function generateLottoNumbers() {
+    const numbers = new Set();
+    while (numbers.size < 6) {
+        numbers.add(Math.floor(Math.random() * 45) + 1);
     }
+    return Array.from(numbers).sort((a, b) => a - b);
+}
 
-    getColor(number) {
-        const value = parseInt(number, 10);
-        if (value <= 10) return '#fbc400'; // Yellow
-        if (value <= 20) return '#69c8f2'; // Blue
-        if (value <= 30) return '#ff7272'; // Red
-        if (value <= 40) return '#aaa'; // Gray
-        return '#b0d840'; // Green
+function addHistory(numbers) {
+    const li = document.createElement('li');
+    li.classList.add('history-item');
+    const now = new Date().toLocaleTimeString();
+    li.innerHTML = `<span>${numbers.join(', ')}</span> <span>${now}</span>`;
+    historyList.prepend(li);
+    
+    if (historyList.children.length > 5) {
+        historyList.removeChild(historyList.lastChild);
     }
 }
 
-customElements.define('lotto-ball', LottoBall);
-
-
-document.getElementById('generate-btn').addEventListener('click', () => {
-    const numbersDisplay = document.getElementById('numbers-display');
+generateBtn.addEventListener('click', () => {
+    generateBtn.disabled = true;
     numbersDisplay.innerHTML = '';
-    const numbers = new Set();
-    while(numbers.size < 6) {
-        const randomNum = Math.floor(Math.random() * 45) + 1;
-        numbers.add(randomNum);
-    }
+    
+    const numbers = generateLottoNumbers();
+    
+    numbers.forEach((num, index) => {
+        const ball = createBall(num, index * 0.1);
+        numbersDisplay.appendChild(ball);
+    });
 
-    for (const number of numbers) {
-        const lottoBall = document.createElement('lotto-ball');
-        lottoBall.setAttribute('number', number);
-        numbersDisplay.appendChild(lottoBall);
-    }
+    setTimeout(() => {
+        generateBtn.disabled = false;
+        addHistory(numbers);
+    }, 600);
 });
