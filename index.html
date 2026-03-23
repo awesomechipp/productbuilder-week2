@@ -1,14 +1,70 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 생성기 - 단순 버전</title>
+    <style>
+        body { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            flex-direction: column; 
+            font-family: sans-serif; 
+            background: #f0f2f5;
+        }
+        .container { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            text-align: center; 
+        }
+        button { 
+            font-size: 1.2rem; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+        }
+        #display { 
+            margin-top: 1rem; 
+            font-size: 2rem; 
+            font-weight: bold; 
+            color: #333; 
+            min-height: 40px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="container">
+        <h1>로또 번호 생성기</h1>
+        <button id="generate-btn">번호 생성</button>
+        <div id="display"></div>
+    </div>
+
+    <script>
+        document.getElementById('generate-btn').addEventListener('click', () => {
+            try {
+                const display = document.getElementById('display');
+                display.innerHTML = ''; // 이전 번호 지우기
+
+                const numbers = new Set();
+                while(numbers.size < 6) {
+                    const randomNum = Math.floor(Math.random() * 45) + 1;
+                    numbers.add(randomNum);
+                }
+
+                const sortedNumbers = Array.from(numbers).sort((a,b) => a-b);
+                
+                // 숫자를 텍스트로 바로 표시
+                display.textContent = sortedNumbers.join(', ');
+
+            } catch (e) {
+                // 만약 에러가 발생하면 화면에 표시
+                const display = document.getElementById('display');
+                display.textContent = '오류 발생: ' + e.message;
+            }
+        });
+    </script>
 </body>
 </html>
