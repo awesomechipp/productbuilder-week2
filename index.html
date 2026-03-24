@@ -3,32 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium 로또 번호 생성기</title>
+    <title>MBTI 애정 궁합</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="glass-container">
-        <div class="theme-toggle">
-            <button id="theme-btn" aria-label="테마 전환">☀️</button>
-        </div>
+        <button id="theme-btn" class="theme-btn" aria-label="테마 전환">🌙</button>
+
         <header>
-            <h1>Lotto <span>Generator</span></h1>
-            <p>행운의 숫자를 확인해보세요!</p>
+            <div class="header-icon">💕</div>
+            <h1>MBTI <span>애정 궁합</span></h1>
+            <p>두 MBTI의 사랑 궁합을 확인해보세요</p>
         </header>
 
-        <div class="display-section">
-            <div id="numbers-display">
-                <div class="placeholder">번호 생성 버튼을 눌러주세요</div>
+        <div class="selector-section">
+            <div class="selector-box">
+                <label>나의 MBTI</label>
+                <div class="type-badge" id="my-badge">?</div>
+                <select id="my-mbti">
+                    <option value="">선택하세요</option>
+                </select>
+                <p class="type-desc" id="my-desc"></p>
+            </div>
+
+            <div class="heart-divider">
+                <div class="divider-heart">💗</div>
+            </div>
+
+            <div class="selector-box">
+                <label>상대방의 MBTI</label>
+                <div class="type-badge" id="partner-badge">?</div>
+                <select id="partner-mbti">
+                    <option value="">선택하세요</option>
+                </select>
+                <p class="type-desc" id="partner-desc"></p>
             </div>
         </div>
 
-        <div class="action-section">
-            <button id="generate-btn">번호 생성하기</button>
-        </div>
-        
-        <div class="history-section">
-            <h3>최근 생성 이력</h3>
-            <ul id="history-list"></ul>
+        <button id="check-btn">궁합 확인하기 ✨</button>
+
+        <div class="result-section" id="result">
+            <div class="result-pair" id="result-pair"></div>
+            <div class="hearts-display" id="hearts-display"></div>
+            <div class="result-badge" id="result-badge"></div>
+            <p class="result-desc" id="result-desc"></p>
+            <div class="detail-grid">
+                <div class="detail-card strengths-card">
+                    <h4>💚 강점</h4>
+                    <ul id="strengths-list"></ul>
+                </div>
+                <div class="detail-card challenges-card">
+                    <h4>⚡ 주의점</h4>
+                    <ul id="challenges-list"></ul>
+                </div>
+            </div>
         </div>
     </div>
 
