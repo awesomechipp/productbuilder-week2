@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #a18cd1 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem 4rem;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.92);
+    width: 100%;
+    max-width: 560px;
+    padding: 2.5rem 2rem;
+    border-radius: 32px;
+    box-shadow: 0 24px 60px rgba(160, 100, 80, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #2d2d2d;
+    margin-bottom: 0.5rem;
+}
+
+h1 span {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header p {
+    color: #777;
+    font-size: 0.95rem;
+}
+
+/* Start Box */
+.start-box {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 240, 230, 0.6);
+    border-radius: 20px;
+    border: 2px dashed #fcb69f;
+}
+
+.animal-icons {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5rem;
+}
+
+.start-box p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+#start-btn {
+    padding: 0.85rem 2rem;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+#start-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Camera Section */
+.cam-wrapper {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#webcam-container canvas {
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    width: 100% !important;
+    max-width: 300px;
+    height: auto !important;
+}
+
+.cam-label {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* Result Box */
+.result-box {
+    background: rgba(255, 245, 255, 0.7);
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1.5px solid #f0d0f0;
+}
+
+.result-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+}
+
+/* Bars */
+.bar-item {
+    margin-bottom: 0.8rem;
+}
+
+.bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+
+.bar-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.bar-pct {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #888;
+}
+
+.bar-track {
+    background: #f0e0f0;
+    border-radius: 99px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.4s ease;
+}
+
+.bar-fill.dog {
+    background: linear-gradient(90deg, #f6d365, #fda085);
+}
+
+.bar-fill.cat {
+    background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+}
+
+/* Verdict */
+.verdict {
+    margin-top: 1.2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2d2d2d;
+    min-height: 2.5rem;
+    transition: all 0.3s;
+}
+
+.verdict .desc {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #777;
+    margin-top: 0.3rem;
+}

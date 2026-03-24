@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나는 강아지상? 고양이상? 🐾</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animal.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-icon">🐾</div>
+            <h1>나는 <span>강아지상</span>? <span>고양이상</span>?</h1>
+            <p>AI가 당신의 얼굴을 분석해 동물상을 알려드려요</p>
+        </header>
+
+        <div class="webcam-section" id="start-section">
+            <div class="start-box">
+                <div class="animal-icons">🐶 🤔 🐱</div>
+                <p>카메라로 얼굴을 비추면<br>AI가 동물상을 분석해드려요!</p>
+                <button id="start-btn" onclick="init()">분석 시작하기 📷</button>
+            </div>
+        </div>
+
+        <div class="webcam-section" id="camera-section" style="display:none;">
+            <div class="cam-wrapper">
+                <div id="webcam-container"></div>
+                <div class="cam-label">얼굴을 카메라에 맞춰주세요</div>
+            </div>
+
+            <div class="result-box" id="result-box">
+                <div class="result-title">🔍 분석 중...</div>
+                <div class="bars" id="label-container"></div>
+                <div class="verdict" id="verdict"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="animal.js"></script>
+</body>
+</html>
