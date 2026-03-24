@@ -472,3 +472,13 @@ select:focus {
 .submit-btn:active {
     transform: translateY(0);
 }
+
+/* 댓글 */
+.disqus-container {
+    width: 100%;
+    max-width: 720px;
+}
+
+#disqus_thread {
+    margin-top: 1rem;
+}
