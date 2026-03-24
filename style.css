@@ -74,6 +74,29 @@ body {
     transition: background 0.3s ease;
 }
 
+/* Animal Test Button */
+.animal-test-btn {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    background: linear-gradient(135deg, #f6d365, #fda085);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: inherit;
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(253, 160, 133, 0.4);
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.animal-test-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
 /* Theme Button */
 .theme-btn {
     position: absolute;

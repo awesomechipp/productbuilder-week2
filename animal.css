@@ -16,6 +16,20 @@ body {
     padding: 2rem 1rem 4rem;
 }
 
+.back-btn {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #a18cd1;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.back-btn:hover {
+    opacity: 0.7;
+}
+
 .container {
     background: rgba(255, 255, 255, 0.92);
     width: 100%;
