@@ -3,13 +3,13 @@ const MODEL_URL = "https://teachablemachine.withgoogle.com/models/uY5EHYOCF/";
 let model, webcam, labelContainer, maxPredictions;
 
 const animalInfo = {
-    "Dog": {
+    "강아지": {
         emoji: "🐶",
         label: "강아지상",
         desc: "밝고 친근한 분위기! 누구에게나 사랑받는 타입이에요.",
         fillClass: "dog"
     },
-    "Cat": {
+    "고양이": {
         emoji: "🐱",
         label: "고양이상",
         desc: "도도하고 매력적인 분위기! 신비로운 매력을 가진 타입이에요.",
