@@ -508,6 +508,53 @@ select:focus {
     transform: translateY(0);
 }
 
+/* Guide text */
+.guide-text {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--sub-text);
+    line-height: 1.7;
+}
+
+/* Footer */
+.site-footer {
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+    padding: 1.5rem 0 0.5rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover { color: #fff; }
+
+.footer-links span { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+
+.footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.3rem;
+}
+
+.footer-disclaimer {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+}
+
 /* 댓글 */
 .disqus-container {
     width: 100%;
